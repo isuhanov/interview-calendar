@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
     max-width: 740px;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -63,19 +63,16 @@ export const WeekContainer = styled(FlexContainer)`
 `;
 
 export const WeekDate = styled.p`
-    font-size: 16px;
+    font-size: 17px;
     padding: 7px;
     border-radius: 50%;
     color: white;
+    /* color: ${({ theme }) => theme.colors.font}; */
     background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const WeekDay = styled(FlexContainer)`
     font-size: 12px;
-`;
-
-export const WeekMonth = styled(FlexContainer)`
-    font-size: 17px;
 `;
 
 export const WeekBtnBar = styled(GridRow)`
@@ -85,4 +82,34 @@ export const WeekBtnBar = styled(GridRow)`
         width: 20px;
         height: 20px;
     }
+`;
+
+export const WeekMonth = styled(FlexContainer)`
+    font-size: 17px;
+`;
+
+
+export const Calendar = styled(FlexContainer)`
+    flex-grow: 1;
+    overflow: auto;
+`;
+
+export const CalendarCell = styled.div`
+    height: 35px;
+    padding: 2px;
+    border: 1px ${({ theme }) => theme.colors.fontSecondary};
+    border-style: none solid solid none;
+
+    div {
+        width: 100%;
+        height: 100%;
+        background-color: ${({ theme }) => theme.colors.secondary};
+    }
+`;
+
+export const CalendarTime = styled.p`
+    font-size: 13px;
+    padding: 2px;
+    text-align: end;
+    color: ${({ theme }) => theme.colors.fontSecondary};
 `;

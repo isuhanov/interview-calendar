@@ -39,4 +39,20 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(192, 191, 191, 0.586) white;
+}
+  
+*::-webkit-scrollbar {
+	height: 5px;
+	width: 5px;
+	border-radius: 10px;
+}
+*::-webkit-scrollbar-track { background: white; }
+*::-webkit-scrollbar-thumb {
+	background-color: rgba(192, 191, 191, 0.586);
+	border-radius: 10px;
+}
 `;
