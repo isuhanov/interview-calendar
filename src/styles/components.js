@@ -7,19 +7,23 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: ${({ theme }) => theme.colors.bg};
 `;
 
 export const FlexContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: ${({ direction = 'row' }) => direction};
-    align-items: ${({ align = 'stretch' }) => align};
-    justify-content: ${({ justify = 'flex-start' }) => justify};
+    align-items: ${({ align = 'center' }) => align};
+    justify-content: ${({ justify = 'center' }) => justify};
+    gap: ${({ gap = '0px' }) => gap};
     padding: ${({ padding = '0px' }) => padding};
 `;
 
-export const ButtonBar = styled.div`
-    display: f;
+export const GridRow = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
 `;
 
 export const Title = styled.h1`
@@ -32,22 +36,53 @@ export const Button = styled.button`
     justify-content: center;
     font-size: 20px;
     font-weight: 500;
-    color: #ff3131;
+    color: ${({ theme }) => theme.colors.primary};
     background-color: inherit;
     
     svg {
         width: 35px;
         height: 35px;
-        fill: #ff3131;
+        fill: ${({ theme }) => theme.colors.primary};
     }
 
     &:hover { 
-        color: #c31919;
-        svg { fill: #c31919; }
+        color: ${({ theme }) => theme.colors.primaryHover};
+        svg { fill: ${({ theme }) => theme.colors.primaryHover}; }
     }
 
     &:active { 
-        color: #ff0000;
-        svg { fill: #ff0000; }
+        color: ${({ theme }) => theme.colors.primaryActive};
+        svg { fill: ${({ theme }) => theme.colors.primaryActive}; }
+    }
+`;
+
+export const WeekContainer = styled(FlexContainer)`
+    border: 1px ${({ theme }) => theme.colors.fontSecondary};
+    border-style: solid none;
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
+`;
+
+export const WeekDate = styled.p`
+    font-size: 16px;
+    padding: 7px;
+    border-radius: 50%;
+    color: white;
+    background-color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const WeekDay = styled(FlexContainer)`
+    font-size: 12px;
+`;
+
+export const WeekMonth = styled(FlexContainer)`
+    font-size: 17px;
+`;
+
+export const WeekBtnBar = styled(GridRow)`
+    grid-template-columns: 1fr 1fr 5fr 1fr;
+
+    svg {
+        width: 20px;
+        height: 20px;
     }
 `;
