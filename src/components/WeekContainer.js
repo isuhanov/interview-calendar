@@ -3,39 +3,19 @@ import { ReactComponent as ArrowForward } from '../assets/icons/arrowForward.svg
 
 import * as S from '../styles/components';
 
-const WeekContainer = () => {
+const WeekContainer = ({ year, month, dateList }) => {
+
     return (        
         <S.WeekContainer padding=' 10px 0' direction='column' gap='10px'>
             <S.GridRow>
                 <p></p>
-                <S.WeekDay direction='column' gap='5px'>
-                    <p>M</p>
-                    <S.WeekDate>25</S.WeekDate>
-                </S.WeekDay>
-                <S.WeekDay direction='column' gap='5px'>
-                    <p>M</p>
-                    <S.WeekDate>25</S.WeekDate>
-                </S.WeekDay>
-                <S.WeekDay direction='column' gap='5px'>
-                    <p>M</p>
-                    <S.WeekDate>25</S.WeekDate>
-                </S.WeekDay>
-                <S.WeekDay direction='column' gap='5px'>
-                    <p>M</p>
-                    <S.WeekDate>25</S.WeekDate>
-                </S.WeekDay>
-                <S.WeekDay direction='column' gap='5px'>
-                    <p>M</p>
-                    <S.WeekDate>25</S.WeekDate>
-                </S.WeekDay>
-                <S.WeekDay direction='column' gap='5px'>
-                    <p>M</p>
-                    <S.WeekDate>25</S.WeekDate>
-                </S.WeekDay>
-                <S.WeekDay direction='column' gap='5px'>
-                    <p>M</p>
-                    <S.WeekDate>25</S.WeekDate>
-                </S.WeekDay>
+                { dateList.map(({ name, date }) => (
+                    <S.WeekDay direction='column' gap='5px' key={date}>
+                        <p>{ name }</p>
+                        <S.WeekDate selected={date === new Date().getDate()}>{ date }</S.WeekDate>
+                    </S.WeekDay>
+                  ))
+                }
             </S.GridRow>
             <S.WeekBtnBar>
                 <p></p>
@@ -43,7 +23,7 @@ const WeekContainer = () => {
                     <ArrowBack />
                 </S.Button>
                 <S.WeekMonth>
-                    March 2019
+                    {month} {year}
                 </S.WeekMonth>
                 <S.Button>
                     <ArrowForward />

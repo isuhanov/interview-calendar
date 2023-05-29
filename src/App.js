@@ -1,15 +1,12 @@
-import { useState, useEffect } from 'react';
 import { ReactComponent as AddLogo } from './assets/icons/add.svg';
 import Calendar from './components/Calendar';
 import * as S from './styles/components';
 import WeekContainer from './components/WeekContainer';
+import { useGetWeek } from './hooks/useGetWeek';
 
 function App() {
-    const [currentDay, setCurrentDay] = useState(null);
 
-    useEffect(() => {
-        setCurrentDay(new Date());
-    }, []);
+    const week = useGetWeek();
 
     return (
         <S.Container>
@@ -20,7 +17,7 @@ function App() {
                 </S.Button>
             </S.FlexContainer>
 
-            <WeekContainer />
+            <WeekContainer {...week}/>
 
             <Calendar />
             

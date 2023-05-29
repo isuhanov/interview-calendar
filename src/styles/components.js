@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 export const Container = styled.div`
     max-width: 740px;
@@ -63,12 +63,19 @@ export const WeekContainer = styled(FlexContainer)`
 `;
 
 export const WeekDate = styled.p`
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 17px;
-    padding: 7px;
     border-radius: 50%;
-    color: white;
-    /* color: ${({ theme }) => theme.colors.font}; */
-    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.font};
+    
+    ${({ selected }) => selected && css`
+        color: white;
+        background-color: ${({ theme }) => theme.colors.primary};
+    `}
 `;
 
 export const WeekDay = styled(FlexContainer)`
